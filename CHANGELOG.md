@@ -7,6 +7,9 @@
 
 ## Unreleased: mitmproxy next
 
+- Fix secure web proxy negotiating `h2` ALPN with the client, which broke
+  HTTP/1.1 CONNECT for clients that offer `h2,http/1.1` on the outer TLS
+  (e.g. Node.js's default). This applies to `--mode regular` and `--mode upstream`.
 - Add `launch_edge()` to the Browser addon, so `browser.start edge` can
   launch an isolated, proxy-configured instance of Microsoft Edge, matching
   the existing Chrome and Firefox support.
